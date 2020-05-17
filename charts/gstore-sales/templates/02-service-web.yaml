@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.nameSpace }}
+  labels:
+    main-app: {{ .Values.mainAppName }}
+    app: {{ .Values.appName }}
+  annotations:
+    mcm.ibm.com/service-discovery: "{}"
+spec:
+  type: ClusterIP
+  ports:
+    - name: my-http
+      port: {{ .Values.serviceTargetPortWeb }}
+      targetPort: {{ .Values.serviceTargetPortWeb }}
+  selector:
+    main-app: {{ .Values.mainAppName }}
+    app: {{ .Values.appName }}
+  

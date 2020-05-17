@@ -1,0 +1,32 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.nameSpace }}
+  labels:
+    main-app: {{ .Values.mainAppName }}
+    app: {{ .Values.appName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      main-app: {{ .Values.mainAppName }}
+      app: {{ .Values.appName }}
+  template:
+    metadata:
+      labels:
+        main-app: {{ .Values.mainAppName }}
+        app: {{ .Values.appName }}
+    spec:
+      containers:
+        - name: my-container
+          image: "{{ .Values.imageRepository }}:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: {{ .Values.serviceTargetPort }}
+              protocol: TCP
+            - name: https
+              containerPort: 8082
+              protocol: TCP
+    

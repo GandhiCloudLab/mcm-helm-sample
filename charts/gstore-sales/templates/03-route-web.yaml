@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.nameSpace }}
+  labels:
+    main-app: {{ .Values.mainAppName }}
+    app: {{ .Values.appName }}
+spec:
+  path: /
+  to:
+    kind: Service
+    name: {{ .Values.appName }}
+    weight: 100
+  port:
+    targetPort: my-http

@@ -1,0 +1,102 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gan2-subscription-ns
+  labels:
+    app-label: gan2
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gan2-channel-ns
+  labels:
+    app-label: gan2
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gan2-app-ns
+  labels:
+    app-label: gan2
+---
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: gan2-application
+  namespace: gan2-subscription-ns
+  labels:
+    app-label: gan2
+spec:
+  componentKinds:
+    - group: app.ibm.com
+      kind: Subscription
+  descriptor: {}
+  selector:
+    matchLabels:
+      app-label: gan2
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gan2-skip-cert-verify
+  namespace: gan2-channel-ns
+  labels:
+    app-label: gan2
+data:
+  insecureSkipVerify: "true"
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: Channel
+metadata:
+  name: gan2-channel
+  namespace: gan2-channel-ns
+  labels:
+    app-label: gan2
+spec:
+  type: HelmRepo
+  pathname: https://github.com/GandhiCloudLab/mcm-130-using-git/tree/master/charts/tgz
+  # raw.githubusercontent.com
+  configMapRef:
+    name: gan2-skip-cert-verify
+    kind: ConfigMap
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: PlacementRule
+metadata:
+  name: gan2-placementrule
+  namespace: gan2-subscription-ns
+  labels:
+    app-label: gan2
+spec: 
+  clusterReplicas: 2
+  clusterLabels:
+    matchExpressions:
+      - key: cloud
+        operator: In
+        values:
+          - IBM
+---
+apiVersion: app.ibm.com/v1alpha1
+kind: Subscription
+metadata:
+  name: gan2-subscription
+  namespace: gan2-subscription-ns
+  labels:
+    app-label: gan2
+spec:
+  channel: gan2-channel-ns/gan2-channel
+  name: wealthcare-application
+  packageFilter:
+    version: "0.1.0"
+  placement:
+    placementRef: 
+      name: gan2-placementrule
+      kind: PlacementRule
+      apiVersion: app.ibm.com/v1alpha1
+  overrides:
+    - clusterName: "/"
+      clusterOverrides:
+      - path: "metadata.namespace"
+        value: gan2-app-ns
+---

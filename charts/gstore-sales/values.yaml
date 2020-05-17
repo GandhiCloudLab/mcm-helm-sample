@@ -1,0 +1,12 @@
+# AppName
+mainAppName: gstore-application
+appName: gstore-sales
+
+# Image
+imageRepository: gandigit/wcare-sub-stocks
+
+# Port
+serviceTargetPort: 8080
+
+# Namespace
+nameSpace: gstore-app-ns
