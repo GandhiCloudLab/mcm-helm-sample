@@ -55,8 +55,13 @@ metadata:
     app-label: gan1
 spec:
   type: HelmRepo
-  pathname: https://github.com/GandhiCloudLab/mcm-130-using-git/tree/master/charts/tgz
-  # raw.githubusercontent.com
+  #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
+  #Type2: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
+  #Type3: pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
+  #Type4: pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
+  #Type5: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
+  pathname:  https://github.com/GandhiCloudLab/mcm-helm-sample.git
+
   configMapRef:
     name: gan1-skip-cert-verify
     kind: ConfigMap
@@ -72,10 +77,10 @@ spec:
   clusterReplicas: 2
   clusterLabels:
     matchExpressions:
-      - key: cloud
+      - key: name
         operator: In
         values:
-          - IBM
+          - ganocp43
 ---
 apiVersion: app.ibm.com/v1alpha1
 kind: Subscription
@@ -86,7 +91,12 @@ metadata:
     app-label: gan1
 spec:
   channel: gan1-channel-ns/gan1-channel
-  name: wealthcare-application
+  #Type1: name: charts/gstore-sales
+  #Type2: name: gstore-sales
+  #Type3: name: gstore-sales
+  #Type4: name: gstore-sales
+  #Type5: name: gstore-sales
+  name: tgz/gstore-sales
   packageFilter:
     version: "0.1.0"
   placement:
