@@ -9,4 +9,4 @@ imageRepository: gandigit/wcare-sub-stocks
 serviceTargetPort: 8080
 
 # Namespace
-nameSpace: gstore-app-ns
+nameSpace: gan1-app-ns

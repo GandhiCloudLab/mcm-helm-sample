@@ -58,10 +58,9 @@ spec:
   #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
   #Type2: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
   #Type3: pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
-  #Type4: pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
+  #Type4:pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   #Type5: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   pathname:  https://github.com/GandhiCloudLab/mcm-helm-sample.git
-
   configMapRef:
     name: gan1-skip-cert-verify
     kind: ConfigMap
@@ -77,10 +76,10 @@ spec:
   clusterReplicas: 2
   clusterLabels:
     matchExpressions:
-      - key: name
+      - key: cloud
         operator: In
         values:
-          - ganocp43
+          - IBM
 ---
 apiVersion: app.ibm.com/v1alpha1
 kind: Subscription
