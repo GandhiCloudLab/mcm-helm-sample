@@ -12,8 +12,8 @@ spec:
   type: ClusterIP
   ports:
     - name: my-http
-      port: {{ .Values.serviceTargetPortWeb }}
-      targetPort: {{ .Values.serviceTargetPortWeb }}
+      port: {{ .Values.serviceTargetPort }}
+      targetPort: {{ .Values.serviceTargetPort }}
   selector:
     main-app: {{ .Values.mainAppName }}
     app: {{ .Values.appName }}
