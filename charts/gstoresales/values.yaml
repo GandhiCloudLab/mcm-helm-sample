@@ -3,10 +3,10 @@ mainAppName: gstore-application
 appName: gstore-sales
 
 # Image
-imageRepository: gandigit/wcare-sub-stocks
+imageRepository: gandigit/cpro-bankweb
 
 # Port
-serviceTargetPort: 9041
+serviceTargetPort: 9030
 containerPort: 8080
 
 # Namespace
