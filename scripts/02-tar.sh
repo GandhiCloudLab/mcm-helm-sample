@@ -2,6 +2,6 @@
 
 cd ../
 
-helm package charts/gstore-sales
+helm package charts/gstoresales
 
 mv *.tgz ./tgz

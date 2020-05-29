@@ -2,4 +2,4 @@
 
 cd ../
 
-helm lint charts/gstore-sales
+helm lint charts/gstoresales

@@ -35,11 +35,11 @@ spec:
   type: HelmRepo
   #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
   #Type2: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
-  #GGGG pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
+  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/charts
   #Type4:  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   #Type5: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   #Type6: pathname:  https://github.com/GandhiCloudLab/mcm-helm-sample.git
-  pathname: https://raw.githubusercontent.com/dymaczew/charts/master/repo/incubator/
+  # pathname: https://raw.githubusercontent.com/dymaczew/charts/master/repo/incubator/
   configMapRef:
     name: gan1-skip-cert-verify
     kind: ConfigMap
@@ -69,13 +69,13 @@ metadata:
     app-label: gan1
 spec:
   channel: gan1-channel-ns/gan1-channel
-  name: bookinfo
+  # name: bookinfo
   # source: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
   #Type1: name: charts/gstore-sales
   #Type2: name: gstore-sales
   #Type3: name: gstore-sales
   #Type4: name: gstore-sales
-  # GOOOD name: gstore-sales
+  name: gstore-sales
    #Type6: name: tgz/gstore-sales
   packageFilter:
     version: 1.1.0
@@ -89,23 +89,23 @@ spec:
       clusterOverrides:
       - path: "metadata.namespace"
         value: gan1-app-ns
-  packageOverrides:
-    - packageName: bookinfo
-      packageOverrides:
-      - path: spec.releaseName
-        value: bookinfo-demo
-      - path: spec.values
-        value: |
-          ingress:
-            host: bookinfo.10.0.10.2.nip.io
-          details:
-            replicaCount: 2
-          reviews:
-            replicaCount: 3
-          ratings:
-            replicaCount: 1
-          productpage:
-            replicaCount: 2
-          mysqldb:
-            replicaCount: 1
+  # packageOverrides:
+  #   - packageName: bookinfo
+  #     packageOverrides:
+  #     - path: spec.releaseName
+  #       value: bookinfo-demo
+  #     - path: spec.values
+  #       value: |
+  #         ingress:
+  #           host: bookinfo.10.0.10.2.nip.io
+  #         details:
+  #           replicaCount: 2
+  #         reviews:
+  #           replicaCount: 3
+  #         ratings:
+  #           replicaCount: 1
+  #         productpage:
+  #           replicaCount: 2
+  #         mysqldb:
+  #           replicaCount: 1
 ---
