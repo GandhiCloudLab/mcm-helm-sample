@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: {{ .Values.serviceTargetPort }}
+              containerPort: {{ .Values.containerPort }}
               protocol: TCP
             - name: https
               containerPort: 8082

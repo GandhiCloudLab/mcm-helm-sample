@@ -6,7 +6,8 @@ appName: gstore-sales
 imageRepository: gandigit/wcare-sub-stocks
 
 # Port
-serviceTargetPort: 8080
+serviceTargetPort: 9041
+containerPort: 8080
 
 # Namespace
 nameSpace: gan1-app-ns
