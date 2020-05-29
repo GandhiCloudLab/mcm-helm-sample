@@ -35,7 +35,7 @@ spec:
   type: HelmRepo
   #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
   #Type2: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
-  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/charts
+  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/tgz
   #Type4:  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   #Type5: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
   #Type6: pathname:  https://github.com/GandhiCloudLab/mcm-helm-sample.git
@@ -75,10 +75,10 @@ spec:
   #Type2: name: gstore-sales
   #Type3: name: gstore-sales
   #Type4: name: gstore-sales
-  name: gstore-sales
+  name: gstoresales
    #Type6: name: tgz/gstore-sales
   packageFilter:
-    version: 1.1.0
+    version: 0.1.0
   placement:
     placementRef: 
       name: gan1-placementrule
