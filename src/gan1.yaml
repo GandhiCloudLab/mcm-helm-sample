@@ -31,16 +31,9 @@ metadata:
   namespace: gan1-channel-ns
   labels:
     app-label: gan1
-    app-label2: gan13
 spec:
   type: HelmRepo
-  #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
-  #Type2: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
   pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/tgz/
-  #Type4:  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
-  #Type5: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz
-  #Type6: pathname:  https://github.com/GandhiCloudLab/mcm-helm-sample.git
-  # pathname: https://raw.githubusercontent.com/dymaczew/charts/master/repo/incubator/
   configMapRef:
     name: gan1-skip-cert-verify
     kind: ConfigMap
@@ -56,10 +49,10 @@ spec:
   clusterReplicas: 1
   clusterLabels:
     matchExpressions:
-      - key: cloud
+      - key: name
         operator: In
         values:
-          - IBM
+          - deb-ibmcloud-mgd-1
 ---
 apiVersion: app.ibm.com/v1alpha1
 kind: Subscription
@@ -68,21 +61,11 @@ metadata:
   namespace: gan1-subscription-ns
   labels:
     app-label: gan1
-    app-label2: gan13
-
 spec:
   channel: gan1-channel-ns/gan1-channel
-  # name: bookinfo
-  # source: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/tree/master/charts
-  #Type1: name: charts/gstore-sales
-  #Type2: name: gstore-sales
-  #Type3: name: gstore-sales
-  #Type4: name: gstore-sales
   name: gstoresales
-   #Type6: name: tgz/gstore-sales
   packageFilter:
     version: 0.1.0
-    # version: 1.1.0
   placement:
     placementRef: 
       name: gan1-placementrule
@@ -93,23 +76,4 @@ spec:
       clusterOverrides:
       - path: "metadata.namespace"
         value: gan1-app-ns
-  # packageOverrides:
-  #   - packageName: bookinfo
-  #     packageOverrides:
-  #     - path: spec.releaseName
-  #       value: bookinfo-demo
-  #     - path: spec.values
-  #       value: |
-  #         ingress:
-  #           host: bookinfo.10.0.10.2.nip.io
-  #         details:
-  #           replicaCount: 2
-  #         reviews:
-  #           replicaCount: 3
-  #         ratings:
-  #           replicaCount: 1
-  #         productpage:
-  #           replicaCount: 2
-  #         mysqldb:
-  #           replicaCount: 1
 ---
