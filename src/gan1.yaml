@@ -31,6 +31,7 @@ metadata:
   namespace: gan1-channel-ns
   labels:
     app-label: gan1
+    app-label2: gan12
 spec:
   type: HelmRepo
   #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
@@ -67,6 +68,8 @@ metadata:
   namespace: gan1-subscription-ns
   labels:
     app-label: gan1
+    app-label2: gan12
+
 spec:
   channel: gan1-channel-ns/gan1-channel
   # name: bookinfo

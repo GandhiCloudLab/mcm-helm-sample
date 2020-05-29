@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.appName }}
-  namespace: {{ .Values.nameSpace }}
+  # namespace: {{ .Values.nameSpace }}
   labels:
     main-app: {{ .Values.mainAppName }}
     app: {{ .Values.appName }}
@@ -17,4 +17,3 @@ spec:
   selector:
     main-app: {{ .Values.mainAppName }}
     app: {{ .Values.appName }}
-  
