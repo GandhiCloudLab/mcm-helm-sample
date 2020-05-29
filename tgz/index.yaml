@@ -1,0 +1,34 @@
+apiVersion: v1
+entries:
+  bookinfo:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2020-05-30T02:19:28.768479+05:30
+    description: A Helm chart for bookinfo app (based on sample Istio app)
+    digest: d9ed7da30c0691ad22b400dcde5a462712f79349f5e6cdf9df5b2cea2edd48b3
+    icon: https://ibm-icp-coc.github.io/charts/repo/stable/bookinfo.png
+    keywords:
+    - sample
+    - istio
+    - bookinfo
+    - ruby
+    - python
+    - liberty
+    - mysql
+    - ICAM
+    - CloudPak
+    name: bookinfo
+    urls:
+    - https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz/bookinfo-1.1.0.tgz
+    version: 1.1.0
+  gstoresales:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2020-05-30T02:19:28.769261+05:30
+    description: Helm chart - gstore-sales App
+    digest: de63f55b993edf68b600110369bdf6f63e3e68fc7383f7b739c0be2226074985
+    name: gstoresales
+    urls:
+    - https://github.com/GandhiCloudLab/mcm-helm-sample/tree/master/tgz/gstoresales-0.1.0.tgz
+    version: 0.1.0
+generated: 2020-05-30T02:19:28.763318+05:30
