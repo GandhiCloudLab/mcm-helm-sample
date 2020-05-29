@@ -31,7 +31,7 @@ metadata:
   namespace: gan1-channel-ns
   labels:
     app-label: gan1
-    app-label2: gan12
+    app-label2: gan13
 spec:
   type: HelmRepo
   #Type1: pathname: https://github.com/GandhiCloudLab/mcm-helm-sample.git
@@ -68,7 +68,7 @@ metadata:
   namespace: gan1-subscription-ns
   labels:
     app-label: gan1
-    app-label2: gan12
+    app-label2: gan13
 
 spec:
   channel: gan1-channel-ns/gan1-channel
