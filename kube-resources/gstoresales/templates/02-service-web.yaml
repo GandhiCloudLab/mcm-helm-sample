@@ -1,0 +1,21 @@
+---
+# Source: gstoresales/templates/02-service-web.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gstore-sales
+  # namespace: gan1-app-ns
+  labels:
+    main-app: gstore-application
+    app: gstore-sales
+  annotations:
+    mcm.ibm.com/service-discovery: "{}"
+spec:
+  type: ClusterIP
+  ports:
+    - name: my-http
+      port: 9030
+      targetPort: 9030
+  selector:
+    main-app: gstore-application
+    app: gstore-sales

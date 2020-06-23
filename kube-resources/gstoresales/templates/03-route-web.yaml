@@ -1,0 +1,18 @@
+---
+# Source: gstoresales/templates/03-route-web.yaml
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: gstore-sales
+  # namespace: gan1-app-ns
+  labels:
+    main-app: gstore-application
+    app: gstore-sales
+spec:
+  path: /
+  to:
+    kind: Service
+    name: gstore-sales
+    weight: 100
+  port:
+    targetPort: my-http

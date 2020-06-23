@@ -1,0 +1,33 @@
+---
+# Source: gstoresales/templates/01-deployment-web.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gstore-sales
+  # namespace: gan1-app-ns
+  labels:
+    main-app: gstore-application
+    app: gstore-sales
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      main-app: gstore-application
+      app: gstore-sales
+  template:
+    metadata:
+      labels:
+        main-app: gstore-application
+        app: gstore-sales
+    spec:
+      containers:
+        - name: my-container
+          image: "gandigit/cpro-bankweb:latest"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 9030
+              protocol: TCP
+            - name: https
+              containerPort: 8082
+              protocol: TCP
