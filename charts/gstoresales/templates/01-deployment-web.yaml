@@ -1,22 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.appName }}
-  # namespace: {{ .Values.nameSpace }}
+  name: gstore-sales
   labels:
-    main-app: {{ .Values.mainAppName }}
-    app: {{ .Values.appName }}
+    app: gstore-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      main-app: {{ .Values.mainAppName }}
-      app: {{ .Values.appName }}
+      app: gstore-application
   template:
     metadata:
       labels:
-        main-app: {{ .Values.mainAppName }}
-        app: {{ .Values.appName }}
+        app: gstore-application
     spec:
       containers:
         - name: my-container
@@ -24,7 +20,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: {{ .Values.containerPort }}
+              containerPort: 9030
               protocol: TCP
             - name: https
               containerPort: 8082

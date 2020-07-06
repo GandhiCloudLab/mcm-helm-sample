@@ -4,25 +4,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gstore-sales
-  # namespace: gan1-app-ns
   labels:
-    main-app: gstore-application
-    app: gstore-sales
+    app: gstore-application
 spec:
   replicas: 1
   selector:
     matchLabels:
-      main-app: gstore-application
-      app: gstore-sales
+      app: gstore-application
   template:
     metadata:
       labels:
-        main-app: gstore-application
-        app: gstore-sales
+        app: gstore-application
     spec:
       containers:
         - name: my-container
-          image: "gandigit/cpro-bankweb:latest"
+          image: "gandhicloudlab/cpro-bankweb:latest"
           imagePullPolicy: Always
           ports:
             - name: http

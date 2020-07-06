@@ -1,23 +1,13 @@
 apiVersion: v1
 entries:
-  dashclinic-server:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2020-06-23T12:16:47.195443+05:30
-    description: A Helm chart for Kubernetes
-    digest: c5cf00f89968dc748eb8af933ee41ea1431bef3ac408cce22ab96f2d32470fc8
-    name: dashclinic-server
-    urls:
-    - https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/tgz/dashclinic-server-1.1.6.tgz
-    version: 1.1.6
   gstoresales:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2020-06-23T12:16:47.196215+05:30
+    created: 2020-07-06T23:27:18.499306+05:30
     description: Helm chart - gstore-sales App
-    digest: de63f55b993edf68b600110369bdf6f63e3e68fc7383f7b739c0be2226074985
+    digest: 8f709f852dbea6159b99be9af7ac563c3323aea0c945ffd1db16070f12b030e0
     name: gstoresales
     urls:
     - https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/tgz/gstoresales-0.1.0.tgz
     version: 0.1.0
-generated: 2020-06-23T12:16:47.192702+05:30
+generated: 2020-07-06T23:27:18.495893+05:30

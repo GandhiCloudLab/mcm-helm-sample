@@ -2,21 +2,20 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: gan1-subscription-ns
+  name: gstore-helm-subscription-ns
   labels:
-    app-label: gan1
+    mcmapp: gstore-helm
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: gan1-channel-ns
+  name: gstore-helm-channel-ns
   labels:
-    app-label: gan1
+    mcmapp: gstore-helm
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: gan1-app-ns
+  name: gstore-helm-app-ns
   labels:
-    app-label: gan1
----
+    mcmapp: gstore-helm

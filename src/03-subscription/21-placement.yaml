@@ -1,0 +1,15 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: PlacementRule
+metadata:
+  name: gstore-helm-placementrule
+  namespace: gstore-helm-subscription-ns
+  labels:
+    mcmapp: gstore-helm
+spec: 
+  clusterReplicas: 1
+  clusterLabels:
+    matchExpressions:
+      - key: name
+        operator: In
+        values:
+          - ocp43-mcm-gan-a

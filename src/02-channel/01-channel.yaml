@@ -1,0 +1,24 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: Channel
+metadata:
+  name: gstore-helm-channel
+  namespace: gstore-helm-channel-ns
+  labels:
+    mcmapp: gstore-helm
+spec:
+  type: HelmRepo
+  pathname: https://raw.githubusercontent.com/GandhiCloudLab/mcm-helm-sample/master/tgz/
+  configMapRef:
+    name: gstore-helm-skip-cert-verify
+    kind: ConfigMap
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gstore-helm-skip-cert-verify
+  namespace: gstore-helm-channel-ns
+  labels:
+    mcmapp: gstore-helm
+data:
+  insecureSkipVerify: "true"
+    

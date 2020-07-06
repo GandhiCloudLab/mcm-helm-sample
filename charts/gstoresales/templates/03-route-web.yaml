@@ -1,16 +1,14 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ .Values.appName }}
-  # namespace: {{ .Values.nameSpace }}
+  name: gstore-sales
   labels:
-    main-app: {{ .Values.mainAppName }}
-    app: {{ .Values.appName }}
+    app: gstore-application
 spec:
   path: /
   to:
     kind: Service
-    name: {{ .Values.appName }}
+    name: gstore-sales
     weight: 100
   port:
     targetPort: my-http

@@ -1,0 +1,22 @@
+apiVersion: app.ibm.com/v1alpha1
+kind: Subscription
+metadata:
+  name: gstore-helm-subscription
+  namespace: gstore-helm-subscription-ns
+  labels:
+    mcmapp: gstore-helm
+spec:
+  channel: gstore-helm-channel-ns/gstore-helm-channel
+  name: gstoresales
+  packageFilter:
+    version: 0.1.0
+  placement:
+    placementRef: 
+      name: gstore-helm-placementrule
+      kind: PlacementRule
+      apiVersion: app.ibm.com/v1alpha1
+  overrides:
+    - clusterName: "/"
+      clusterOverrides:
+      - path: "metadata.namespace"
+        value: gstore-helm-app-ns

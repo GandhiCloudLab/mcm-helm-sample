@@ -1,13 +1,2 @@
-# AppName
-mainAppName: gstore-application
-appName: gstore-sales
-
 # Image
-imageRepository: gandigit/cpro-bankweb
-
-# Port
-serviceTargetPort: 9030
-containerPort: 9030
-
-# Namespace
-nameSpace: gan1-app-ns
+imageRepository: gandhicloudlab/cpro-bankweb
