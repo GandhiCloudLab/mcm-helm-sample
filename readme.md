@@ -1,6 +1,6 @@
 # Installing MCM App using HelmRepo Channel in IBM Cloud Pak for Multicloud Management Version 1.3.0 
 
-## 1. Installation Steps
+## 1. Installation steps
 
 1. Download this project from git
 
@@ -110,7 +110,7 @@ The Helm repo sub path where the deployables are stored.
 The actual helm repo chart scripts are available in the folder.
 
 <img src="images/22-charts1.png" >
-<img src="images/23-charts2.png" >
+<img src="images/22-charts2.png" >
 
 #### Scripts
 
